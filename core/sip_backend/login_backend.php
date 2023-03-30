@@ -16,13 +16,13 @@ if (isset($_POST['login'])) {
 
     if(empty($email)){
 
-        $msg = "EMAIL IS REQUIRED";
+        $msg = "Email is Required";
         array_push($errors, $msg);
 
     }
     elseif(empty($pword)) {
 
-        $msg = "PASSWORD IS REQUIRED";
+        $msg = "Password is Required";
         array_push($errors, $msg);
 
     }
