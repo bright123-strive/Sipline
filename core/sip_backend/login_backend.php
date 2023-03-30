@@ -1,27 +1,36 @@
 <?php
 
-require_once "connection.php";
+require_once("connection.php");
 
 $msg = "";
 $errors = array();
 
 if (isset($_POST['login'])) {
 
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    $pword = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    $email = $_POST['email'];
+    $pword = $_POST['password'];
 
-    if (empty($pword) || empty($email)) {
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $msg = "INVALID EMAIL FORMAT";
+    }
 
-        $msg = "Fill in the Blank space";
+    if(empty($email)){
+
+        $msg = "EMAIL IS REQUIRED";
         array_push($errors, $msg);
-        // echo "Fill in the empty space";
 
     }
-    else{
+    elseif(empty($pword)) {
+
+        $msg = "PASSWORD IS REQUIRED";
+        array_push($errors, $msg);
+
+    }
+    else{ 
         if (count($errors) == 0) {
 
-            $qr = "SELECT * FROM peer WHERE email = $email AND password = $pword";
-            $run = $conn->query($qr);
+            $qr = "SELECT * FROM peers WHERE email = '$email' AND password = '$pword'";
+            $run = $conn->query($qr) or die(mysqli_error($conn));
 
             if (mysqli_num_rows($run) > 0){
 
@@ -42,7 +51,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchname'] = $fetch_fullname;
                             $_SESSION['fetchpwd'] = $fetch_pwd;
 
-                            header('location:../index.html');
+                            header("location: index.html");
                         }
                         else{
                             $msg = "User not Active! Contact your Administrator";
@@ -70,6 +79,10 @@ if (isset($_POST['login'])) {
                 $msg = 'Invalid Email or Password';
             }
         }
+        // else{
+        //     echo "invalid";
+        // }
+        
     }
 }
 

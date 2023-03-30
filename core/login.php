@@ -25,29 +25,25 @@
 
     <body class="login">
 
-	<?php
-
-		require_once ("sip_backend/login_backend.php");
-
-	?>
+		<?php
+			require_once("sip_backend/login_backend.php");
+		?>
 
         <div>
-            <!-- <a href="" class = "hiddenanchor" id="signup"></a>
-            <a href="" class="hiddenanchor" id="signin"></a> -->
 
             <div class="login_wrapper">
                 <div class="animate form login_form">
 
                     <section class="login_content">
-                        <form action="sip_backend/login_backend.php" method="POST">
+                        <form action="" method="POST" enctype="multiple/form-data" novalidate>
                             <h1>SIPLINE ICALL</h1>
 
                             <div>
-            					<span class="error"> <?php  echo $msg;  ?></span>
-        					</div>
+            					<span> <?php  echo $msg;  ?></span>
+        				    </div>
 
                             <div>
-                                <input type="text" name="email" class="form-control" placeholder="sip@gmail.com" >
+                                <input type="email" name="email" autocomplete="off" class="form-control" placeholder="sip@gmail.com" >
                             </div>
 
                             <div>
