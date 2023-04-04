@@ -1,3 +1,10 @@
+<?php
+
+require_once('sip_backend/connection.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +14,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Gentelella Alela! | </title>
+	<title>SIP ICALL! | </title>
 
 	<!-- Bootstrap -->
 	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +45,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+						<a href="index.html" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -50,7 +57,7 @@
 						</div>
 						<div class="profile_info">
 							<span>Welcome,</span>
-							<h2>John Doe</h2>
+							<h2> <?php echo $_SESSION['fetchname']; ?></h2>
 						</div>
 					</div>
 					<!-- /menu profile quick info -->
@@ -69,8 +76,8 @@
 										<li><a href="index3.html">Dashboard3</a></li>
 									</ul>
 								</li>
-								<li><a href="form.html"><i class="fa fa-edit"></i> User Registration <span class="fa fa-chevron-down"></span></a>
-									<!-- <ul class="nav child_menu">
+								<li><a href="form.php"><i class="fa fa-edit"></i> Registration </a>
+									<!-- <ul class="nav child_menu"> <span class="fa fa-chevron-down"></span>
 										<li><a href="form.html">General Form</a></li>
 										<li><a href="form_advanced.html">Advanced Components</a></li>
 										<li><a href="form_validation.html">Form Validation</a></li>
@@ -190,7 +197,7 @@
 						<ul class=" navbar-right">
 							<li class="nav-item dropdown open" style="padding-left: 15px;">
 								<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-									<img src="images/img.jpg" alt="">John Doe
+									<img src="images/img.jpg" alt=""> <?php echo $_SESSION['fetchname']; ?>
 								</a>
 								<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -204,10 +211,10 @@
 							</li>
 
 							<li role="presentation" class="nav-item dropdown open">
-								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+								<!-- <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
 									<span class="badge bg-green">6</span>
-								</a>
+								</a> -->
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
 									<li class="nav-item">
 										<a class="dropdown-item">
@@ -381,11 +388,11 @@
 						</div>
 					</div>
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-6 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Form Design <small>different form elements</small></h2>
+									<h2>Form Design <small>different form </small></h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -521,7 +528,7 @@
 								</div>
 								<div class="x_content">
 
-									<!-- start form for validation -->
+									<-- start form for validation ->
 									<form id="demo-form" data-parsley-validate>
 										<label for="fullname">Full Name * :</label>
 										<input type="text" id="fullname" class="form-control" name="fullname" required />
@@ -566,15 +573,15 @@
 												<span class="btn btn-primary">Validate form</span>
 
 									</form>
-									<!-- end form for validations -->
+									<!- end form for validations ->
 
 								</div>
 							</div>
 
 
-						</div>
+						</div> -->
 
-						<div class="col-md-6 ">
+						<!-- <div class="col-md-6 ">
 							<div class="x_panel">
 								<div class="x_title">
 									<h2>Form Basic Elements <small>different form elements</small></h2>
@@ -888,10 +895,10 @@
 									</form>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 
-						<div class="col-md-6 col-sm-12 ">
+						<!-- <div class="col-md-6 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
 									<h2>Form Buttons <small>Sessions</small></h2>
@@ -955,8 +962,8 @@
 															</li>
 														</ul>
 													</div>
-													<!-- /btn-group -->
-												</div>
+													<!- /btn-group -->
+												<!--</div>
 												<div class="input-group">
 													<input type="text" class="form-control">
 													<span class="input-group-btn">
@@ -969,9 +976,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="col-md-12 col-sm-12 ">
+					<!-- <div class="col-md-12 col-sm-12 ">
 						<div class="x_panel">
 							<div class="x_title">
 								<h2>Text areas<small>Sessions</small></h2>
@@ -1077,9 +1084,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="x_panel">
+					<!-- <div class="x_panel">
 						<div class="x_title">
 							<h2>Form Input Grid <small>form input </small></h2>
 							<ul class="nav navbar-right panel_toolbox">
@@ -1219,10 +1226,10 @@
 							</div>
 
 						</div>
-					</div>
+					</div> -->
 
 
-					<div class="x_panel">
+					<!-- <div class="x_panel">
 						<div class="x_title">
 							<h2>Form Design <small>different form elements</small></h2>
 							<ul class="nav navbar-right panel_toolbox">
@@ -1240,14 +1247,14 @@
 							</ul>
 							<div class="clearfix"></div>
 						</div>
-						<div class="x_content">
-							<br />
+						<div class="x_content"> -->
+							<!-- <br /> -->
 
-							<h4>Horizontal labels</h4>
-							<p class="font-gray-dark">
+							<!-- <h4>Horizontal labels</h4> -->
+							<!-- <p class="font-gray-dark">
 								Using the grid system you can control the position of the labels. The form example below has the <b>col-md-10</b> which sets the width to 10/12 and <b>center-margin</b> which centers it.
-							</p>
-							<form class="form-horizontal form-label-left">
+							</p> -->
+							<!-- <form class="form-horizontal form-label-left">
 								<div class="form-group row">
 									<label class="control-label col-md-3" for="first-name">First Name <span class="required">*</span>
 									</label>
@@ -1262,10 +1269,10 @@
 										<input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 ">
 									</div>
 								</div>
-							</form>
+							</form> -->
 
 
-							<h4>Vertical labels</h4>
+							<!-- <h4>Vertical labels</h4>
 							<p class="font-gray-dark">
 								For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
 							</p>
@@ -1281,9 +1288,9 @@
 									</div>
 
 								</form>
-							</div>
+							</div> -->
 
-							<h4>Inline Form </h4>
+							<!-- <h4>Inline Form </h4>
 							<p class="font-gray-dark">
 								Add .form-inline to your form (which doesn't have to be a &lt;form&gt;) for left-aligned and inline-block controls.
 							</p>
@@ -1302,9 +1309,9 @@
 									</label>
 								</div>
 								<button type="submit" class="btn btn-secondary">Send invitation</button>
-							</form>
-						</div>
-					</div>
+							</form> -->
+						<!-- </div>
+					</div> -->
 				</div>
 			</div>
 			<!-- /page content -->

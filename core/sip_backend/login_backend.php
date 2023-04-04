@@ -51,7 +51,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchname'] = $fetch_fullname;
                             $_SESSION['fetchpwd'] = $fetch_pwd;
 
-                            header("location: index.html");
+                            header("location: dashboard.php");
                         }
                         else{
                             $msg = "User not Active! Contact your Administrator";
