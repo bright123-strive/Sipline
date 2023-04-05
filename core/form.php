@@ -37,6 +37,15 @@ require_once('sip_backend/connection.php');
 
 	<!-- Custom Theme Style -->
 	<link href="../build/css/custom.min.css" rel="stylesheet">
+
+	<style>
+		form {
+			max-width: 900px;
+			display: block;
+			margin: 0 auto;
+		}
+	</style>
+
 </head>
 
 <body class="nav-md">
@@ -211,12 +220,36 @@ require_once('sip_backend/connection.php');
 							</li>
 
 							<li role="presentation" class="nav-item dropdown open">
-								<!-- <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
-									<span class="badge bg-green">6</span>
-								</a> -->
-								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-									<li class="nav-item">
+									<!-- <span class="badge bg-green">6</span> -->
+								</a>
+								<!-- <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1"> -->
+									<!-- <li class="nav-item">
+										<a class="dropdown-item">
+											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+											<span>
+												<span>John Smith</span>
+												<span class="time">3 mins ago</span>
+											</span>
+											<span class="message">
+												Film festivals used to be do-or-die moments for movie makers. They were where...
+											</span>
+										</a>
+									</li> -->
+									<!-- <li class="nav-item">
+										<a class="dropdown-item">
+											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+											<span>
+												<span>John Smith</span>
+												<span class="time">3 mins ago</span>
+											</span>
+											<span class="message">
+												Film festivals used to be do-or-die moments for movie makers. They were where...
+											</span>
+										</a> 
+									</li>-->
+									<!-- <li class="nav-item">
 										<a class="dropdown-item">
 											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
 											<span>
@@ -239,41 +272,17 @@ require_once('sip_backend/connection.php');
 												Film festivals used to be do-or-die moments for movie makers. They were where...
 											</span>
 										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
+									</li> -->
+									<!-- <li class="nav-item">
 										<div class="text-center">
 											<a class="dropdown-item">
 												<strong>See All Alerts</strong>
 												<i class="fa fa-angle-right"></i>
 											</a>
 										</div>
-									</li>
-								</ul>
-							</li>
+									</li> -->
+								<!-- </ul>
+							</li> -->
 						</ul>
 					</nav>
 				</div>
@@ -283,7 +292,7 @@ require_once('sip_backend/connection.php');
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="">
-					<div class="page-title">
+					<!-- <div class="page-title">
 						<div class="title_left">
 							<h3>Form Elements</h3>
 						</div>
@@ -298,17 +307,17 @@ require_once('sip_backend/connection.php');
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="clearfix"></div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Form Design <small>different form elements</small></h2>
-									<ul class="nav navbar-right panel_toolbox">
-										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-										</li>
-										<li class="dropdown">
+									<h2>REGISTRATION FORM</h2>
+									<!--<ul class="nav navbar-right panel_toolbox">
+										 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li> -->
+										<!-- <li class="dropdown">
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 											<ul class="dropdown-menu" role="menu">
 												<li><a class="dropdown-item" href="#">Settings 1</a>
@@ -316,36 +325,80 @@ require_once('sip_backend/connection.php');
 												<li><a class="dropdown-item" href="#">Settings 2</a>
 												</li>
 											</ul>
-										</li>
-										<li><a class="close-link"><i class="fa fa-close"></i></a>
-										</li>
-									</ul>
+										</li> -->
+										<!-- <li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li> 
+									</ul>-->
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
-											</label>
+										<form action="sip_backend/reg_operation.php" method="POST" enctype="multiple/form-data" novalidate id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="full-name">Full Name <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6  form-group has-feedback">
+													<input type="text" name="fname" class="form-control" id="inputSuccess3">
+													<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+												</div>
+											</div>
+
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="email">Email <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6  form-group has-feedback">
+													<input type="text" name="email" class="form-control" id="inputSuccess3" >
+													<span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
+												</div>
+											</div>
+
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="phone-number">Phone Number <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6 form-group has-feedback">
+													<input type="tel" name="number" id="inputSuccess3" class="form-control">
+													<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+												</div>
+											</div>
+
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6 ">
+													<input id="birthday" class="date-picker form-control" name="dob" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+													<script>
+														function timeFunctionLong(input) {
+															setTimeout(function() {
+																input.type = 'text';
+															}, 60000);
+														}
+													</script>
+												</div>
+											</div>
+
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="seeAnotherField">Role <span class="required">*</span>
+												</label>
+												<div class="col-md-6 col-sm-6  form-group has-feedback">
+													<select id="seeAnotherField" name="role" class="form-control" required>
+														<option value="">Choose..</option>
+														<option value="manager">Manager</option>
+														<option value="agent">Agent</option>
+													</select>
+												</div>
+											</div>
+
+										<div class="item form-group" id="otherFieldDiv">
+											<label for="extension" class="col-form-label col-md-3 col-sm-3 label-align">Extension</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="tel" id="otherField" class="form-control" name="ext">
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="last-name" name="last-name" required="required" class="form-control">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="middle-name">
-											</div>
-										</div>
+
+										
+
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
 											<div class="col-md-6 col-sm-6 ">
@@ -359,26 +412,13 @@ require_once('sip_backend/connection.php');
 												</div>
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-												<script>
-													function timeFunctionLong(input) {
-														setTimeout(function() {
-															input.type = 'text';
-														}, 60000);
-													}
-												</script>
-											</div>
-										</div>
+
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
 												<button class="btn btn-primary" type="reset">Reset</button>
-												<button type="submit" class="btn btn-success">Submit</button>
+												<button type="submit" name="register" class="btn btn-success">Submit</button>
 											</div>
 										</div>
 
@@ -898,420 +938,8 @@ require_once('sip_backend/connection.php');
 						</div> -->
 
 
-						<!-- <div class="col-md-6 col-sm-12 ">
-							<div class="x_panel">
-								<div class="x_title">
-									<h2>Form Buttons <small>Sessions</small></h2>
-									<ul class="nav navbar-right panel_toolbox">
-										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item" href="#">Settings 1</a>
-												<a class="dropdown-item" href="#">Settings 2</a>
-											</div>
-										</li>
-										<li><a class="close-link"><i class="fa fa-close"></i></a>
-										</li>
-									</ul>
-									<div class="clearfix"></div>
-								</div>
-								<div class="x_content">
-
-									<form class="form-horizontal form-label-left">
-
-										<div class="form-group row">
-											<label class="col-sm-3 col-form-label">Button addons</label>
-
-											<div class="col-sm-9">
-												<div class="input-group">
-													<span class="input-group-btn">
-														<button type="button" class="btn btn-primary go-class">Go!</button>
-													</span>
-													<input type="text" class="form-control">
-												</div>
-												<div class="input-group">
-													<input type="text" class="form-control">
-													<span class="input-group-btn">
-														<button type="button" class="btn btn-primary">Go!</button>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="divider-dashed"></div>
-
-										<div class="form-group row">
-											<label class="col-sm-3 col-form-label">Button addons</label>
-
-											<div class="col-sm-9">
-												<div class="dropdown input-group row">
-													<input type="text" class="form-control" aria-label="Text input with dropdown button">
-													<div class="input-group-btn">
-														<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span>
-														</button>
-														<ul class="dropdown-menu dropdown-menu-right" role="menu">
-															<li><a class="dropdown-item" href="#">Action</a>
-															</li>
-															<li><a class="dropdown-item" href="#">Another action</a>
-															</li>
-															<li><a class="dropdown-item" href="#">Something else here</a>
-															</li>
-															<li class="divider"></li>
-															<li><a class="dropdown-item" href="#">Separated link</a>
-															</li>
-														</ul>
-													</div>
-													<!- /btn-group -->
-												<!--</div>
-												<div class="input-group">
-													<input type="text" class="form-control">
-													<span class="input-group-btn">
-														<button type="button" class="btn btn-primary">Go!</button>
-													</span>
-												</div>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div> -->
-
-					<!-- <div class="col-md-12 col-sm-12 ">
-						<div class="x_panel">
-							<div class="x_title">
-								<h2>Text areas<small>Sessions</small></h2>
-								<ul class="nav navbar-right panel_toolbox">
-									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="#">Settings 1</a>
-											<a class="dropdown-item" href="#">Settings 2</a>
-										</div>
-									</li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a>
-									</li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-							<div class="x_content">
-								<div id="alerts"></div>
-								<div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										</ul>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a data-edit="fontSize 5">
-													<p style="font-size:17px">Huge</p>
-												</a>
-											</li>
-											<li>
-												<a data-edit="fontSize 3">
-													<p style="font-size:14px">Normal</p>
-												</a>
-											</li>
-											<li>
-												<a data-edit="fontSize 1">
-													<p style="font-size:11px">Small</p>
-												</a>
-											</li>
-										</ul>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-										<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-										<a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-										<a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-										<a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-										<a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-										<a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-										<a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-										<a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-										<a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
-										<div class="dropdown-menu input-append">
-											<input class="span2" placeholder="URL" type="text" data-edit="createLink" />
-											<button class="btn" type="button">Add</button>
-										</div>
-										<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-									</div>
-
-									<div class="btn-group">
-										<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-										<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-									</div>
-
-									<div class="btn-group">
-										<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-										<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-									</div>
-								</div>
-
-								<div id="editor-one" class="editor-wrapper"></div>
-
-								<textarea name="descr" id="descr" style="display:none;"></textarea>
-
-								<br />
-
-								<div class="ln_solid"></div>
-
-								<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 ">Resizable Text area</label>
-									<div class="col-md-9 col-sm-9 ">
-										<textarea class="resizable_textarea form-control" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
-
-					<!-- <div class="x_panel">
-						<div class="x_title">
-							<h2>Form Input Grid <small>form input </small></h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a class="dropdown-item" href="#">Settings 1</a>
-										<a class="dropdown-item" href="#">Settings 2</a>
-									</div>
-								</li>
-								<li><a class="close-link"><i class="fa fa-close"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-
-							<div class="row">
-
-								<div class="col-md-12 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-12" class="form-control">
-								</div>
-
-								<div class="col-md-6 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-6" class="form-control">
-								</div>
-
-								<div class="col-md-6 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-6" class="form-control">
-								</div>
 
 
-								<div class="col-md-4 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-4" class="form-control">
-								</div>
-
-								<div class="col-md-4 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-4" class="form-control">
-								</div>
-
-								<div class="col-md-4 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-4" class="form-control">
-								</div>
-
-
-								<div class="col-md-3 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-3" class="form-control">
-								</div>
-
-								<div class="col-md-3 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-3" class="form-control">
-								</div>
-
-								<div class="col-md-3 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-3" class="form-control">
-								</div>
-
-								<div class="col-md-3 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-3" class="form-control">
-								</div>
-
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-								<div class="col-md-2 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-2" class="form-control">
-								</div>
-
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-
-								<div class="col-md-1 col-sm-12  form-group">
-									<input type="text" placeholder=".col-md-1" class="form-control">
-								</div>
-							</div>
-
-						</div>
-					</div> -->
-
-
-					<!-- <div class="x_panel">
-						<div class="x_title">
-							<h2>Form Design <small>different form elements</small></h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a class="dropdown-item" href="#">Settings 1</a>
-										<a class="dropdown-item" href="#">Settings 2</a>
-									</div>
-								</li>
-								<li><a class="close-link"><i class="fa fa-close"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content"> -->
-							<!-- <br /> -->
-
-							<!-- <h4>Horizontal labels</h4> -->
-							<!-- <p class="font-gray-dark">
-								Using the grid system you can control the position of the labels. The form example below has the <b>col-md-10</b> which sets the width to 10/12 and <b>center-margin</b> which centers it.
-							</p> -->
-							<!-- <form class="form-horizontal form-label-left">
-								<div class="form-group row">
-									<label class="control-label col-md-3" for="first-name">First Name <span class="required">*</span>
-									</label>
-									<div class="col-md-7">
-										<input type="text" id="first-name2" required="required" class="form-control col-md-7 ">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="control-label col-md-3" for="last-name">Last Name <span class="required">*</span>
-									</label>
-									<div class="col-md-7">
-										<input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 ">
-									</div>
-								</div>
-							</form> -->
-
-
-							<!-- <h4>Vertical labels</h4>
-							<p class="font-gray-dark">
-								For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
-							</p>
-							<div class="col-md-8 center-margin">
-								<form class="form-horizontal form-label-left">
-									<div class="form-group row">
-										<label>Email address</label>
-										<input type="email" class="form-control" placeholder="Enter email">
-									</div>
-									<div class="form-group row">
-										<label>Password</label>
-										<input type="password" class="form-control" placeholder="Password">
-									</div>
-
-								</form>
-							</div> -->
-
-							<!-- <h4>Inline Form </h4>
-							<p class="font-gray-dark">
-								Add .form-inline to your form (which doesn't have to be a &lt;form&gt;) for left-aligned and inline-block controls.
-							</p>
-							<form class="form-inline">
-								<div class="form-group">
-									<label for="ex3" class="col-form-label">Email address</label>
-									<input type="text" id="ex3" class="form-control" placeholder=" ">
-								</div>
-								<div class="form-group">
-									<label for="ex4" class="col-form-label">Email address</label>
-									<input type="email" id="ex4" class="form-control" placeholder=" ">
-								</div>
-								<div class="form-check">
-									<label>
-										<input type="checkbox"> Remember me
-									</label>
-								</div>
-								<button type="submit" class="btn btn-secondary">Send invitation</button>
-							</form> -->
-						<!-- </div>
-					</div> -->
 				</div>
 			</div>
 			<!-- /page content -->
@@ -1364,3 +992,19 @@ require_once('sip_backend/connection.php');
 	<script src="../build/js/custom.min.js"></script>
 
 </body></html>
+
+<script>
+$("#seeAnotherField").change(function() {
+			if ($(this).val() == "agent") {
+				$('#otherFieldDiv').show();
+				$('#otherField').attr('required','');
+				$('#otherField').attr('data-error', 'This field is required.');
+			} else {
+				$('#otherFieldDiv').hide();
+				$('#otherField').removeAttr('required');
+				$('#otherField').removeAttr('data-error');				
+			}
+		});
+		$("#seeAnotherField").trigger("change");
+		
+</script>
