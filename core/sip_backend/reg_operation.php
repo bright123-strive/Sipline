@@ -15,12 +15,6 @@ if (isset($_POST['register'])) {
     $ex = $_POST['ext'];
     $gender = $_POST['gender'];
 
-    // $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-	// $image_name = addslashes($_FILES['image']['name']);
-	// $image_size = getimagesize($_FILES['image']['tmp_name']);
-
-	// move_uploaded_file($_FILES["image"]["tmp_name"], "images/" . $_FILES["image"]["name"]);
-	// $img = "images/" . $_FILES["image"]["name"];
 
     if (empty($name) || empty($number) || empty($dob) || empty($gender)) {
         $msg = 'Fill in the Blank Field'.mysqli_error($conn);
@@ -28,18 +22,13 @@ if (isset($_POST['register'])) {
 
         echo "invalid whatever".mysqli_error($conn);
     }
-    // else{
-    //     echo "good to go".'<br>';
-    // }
 
     if(empty($role)){
         $msg = 'Please Select Role'.mysqli_error($conn);
         array_push($errors, $msg);
 
-        // echo "select the role" .'<br>';
     }
     else{
-        // echo "role has been selected".'<br>';
 
         if ($role == 'agent') {
             if (empty($ex)) {
@@ -47,11 +36,8 @@ if (isset($_POST['register'])) {
                 $msg = 'Insert the Extension'.mysqli_error($conn);
                 array_push($errors, $msg);
 
-                // echo "ext is not filled".'<br>';
             }
-            // else{
-            //     echo "good to go ".'<br>';
-            // }
+
         }
 
     }
@@ -60,12 +46,7 @@ if (isset($_POST['register'])) {
         $msg = 'Invalid Email'.mysqli_error($conn);
         array_push($errors, $msg);
 
-        // echo "invalid email".mysqli_error($conn);
     }
-    // else{
-    //     echo "valid email".'<br>';
-    // }
-
 
     if(count($errors) == 0){
 
@@ -98,12 +79,13 @@ if (isset($_POST['register'])) {
                         $msg = "Not inserted".mysqli_error($conn);
                     }
                     else{
-                        header('location: ../form.php');
+
+                        $msg = "User Successfully Registared";
+                        
+                        header('location: form.php');
                     }
                 }
-                else{
-                    // echo "GOODY";
-                }
+                
             }
             else{
                 $msg = "didnt work".mysqli_error($conn);
@@ -115,8 +97,6 @@ if (isset($_POST['register'])) {
 
 
 }
-else{
-    $msg = 'bad';
-}
+
 
 ?>
