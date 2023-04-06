@@ -39,10 +39,11 @@ require_once('sip_backend/connection.php');
 	<link href="../build/css/custom.min.css" rel="stylesheet">
 
 	<style>
-		form {
-			max-width: 900px;
-			display: block;
-			margin: 0 auto;
+		#file-ip-1-preview{
+			max-width: 10%;
+			border-radius: 10px;
+			margin-bottom: 2px;
+			margin-top: 5px;
 		}
 	</style>
 
@@ -224,65 +225,7 @@ require_once('sip_backend/connection.php');
 									<i class="fa fa-envelope-o"></i>
 									<!-- <span class="badge bg-green">6</span> -->
 								</a>
-								<!-- <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1"> -->
-									<!-- <li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li> -->
-									<!-- <li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a> 
-									</li>-->
-									<!-- <li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-											<span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li> -->
-									<!-- <li class="nav-item">
-										<div class="text-center">
-											<a class="dropdown-item">
-												<strong>See All Alerts</strong>
-												<i class="fa fa-angle-right"></i>
-											</a>
-										</div>
-									</li> -->
-								<!-- </ul>
-							</li> -->
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -314,21 +257,7 @@ require_once('sip_backend/connection.php');
 							<div class="x_panel">
 								<div class="x_title">
 									<h2>REGISTRATION FORM</h2>
-									<!--<ul class="nav navbar-right panel_toolbox">
-										 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-										</li> -->
-										<!-- <li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-											<ul class="dropdown-menu" role="menu">
-												<li><a class="dropdown-item" href="#">Settings 1</a>
-												</li>
-												<li><a class="dropdown-item" href="#">Settings 2</a>
-												</li>
-											</ul>
-										</li> -->
-										<!-- <li><a class="close-link"><i class="fa fa-close"></i></a>
-										</li> 
-									</ul>-->
+
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
@@ -382,7 +311,7 @@ require_once('sip_backend/connection.php');
 												<label class="col-form-label col-md-3 col-sm-3 label-align" for="seeAnotherField">Role <span class="required">*</span>
 												</label>
 												<div class="col-md-6 col-sm-6  form-group has-feedback">
-													<select id="seeAnotherField" name="role" class="form-control" required>
+													<select id="seeAnotherField" name="role" class="form-control">
 														<option value="">Choose..</option>
 														<option value="manager">Manager</option>
 														<option value="agent">Agent</option>
@@ -397,14 +326,12 @@ require_once('sip_backend/connection.php');
 											</div>
 										</div>
 
-										
-
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
 											<div class="col-md-6 col-sm-6 ">
 												<div id="gender" class="btn-group" data-toggle="buttons">
 													<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-														<input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
+														<input type="radio" name="gender" value="male" class="join-btn"> Male
 													</label>
 													<label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
 														<input type="radio" name="gender" value="female" class="join-btn"> Female
@@ -412,6 +339,14 @@ require_once('sip_backend/connection.php');
 												</div>
 											</div>
 										</div>
+
+										<!-- <div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="img">Upload Image <span class="required">*</span> <br></label>
+											<div class="col-md-6 col-sm-6 form-group has-feedback">
+												<img src="" id="file-ip-1-preview" alt="">
+												<input type="file" name="image" id="file-ip-1" accept="img/*" onchange="showPreview(event);">
+											</div>
+										</div> -->
 
 										<div class="ln_solid"></div>
 										<div class="item form-group">
@@ -994,14 +929,26 @@ require_once('sip_backend/connection.php');
 </body></html>
 
 <script>
+	function showPreview(event){
+        if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("file-ip-1-preview");
+            preview.src = src;
+            preview.style.display = "block";
+
+        }
+    }
+</script>
+
+<script>
 $("#seeAnotherField").change(function() {
 			if ($(this).val() == "agent") {
 				$('#otherFieldDiv').show();
-				$('#otherField').attr('required','');
-				$('#otherField').attr('data-error', 'This field is required.');
+				// $('#otherField').attr('required','');
+				// $('#otherField').attr('data-error', 'This field is required.');
 			} else {
 				$('#otherFieldDiv').hide();
-				$('#otherField').removeAttr('required');
+				// $('#otherField').removeAttr('required');
 				$('#otherField').removeAttr('data-error');				
 			}
 		});
