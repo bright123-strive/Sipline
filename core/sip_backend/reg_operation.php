@@ -36,7 +36,7 @@ if (isset($_POST['register'])) {
         $msg = 'Please Select Role'.mysqli_error($conn);
         array_push($errors, $msg);
 
-        echo "select the role" .'<br>';
+        // echo "select the role" .'<br>';
     }
     else{
         // echo "role has been selected".'<br>';
@@ -47,7 +47,7 @@ if (isset($_POST['register'])) {
                 $msg = 'Insert the Extension'.mysqli_error($conn);
                 array_push($errors, $msg);
 
-                echo "ext is not filled".'<br>';
+                // echo "ext is not filled".'<br>';
             }
             // else{
             //     echo "good to go ".'<br>';
@@ -60,7 +60,7 @@ if (isset($_POST['register'])) {
         $msg = 'Invalid Email'.mysqli_error($conn);
         array_push($errors, $msg);
 
-        echo "invalid email".mysqli_error($conn);
+        // echo "invalid email".mysqli_error($conn);
     }
     // else{
     //     echo "valid email".'<br>';
@@ -68,21 +68,55 @@ if (isset($_POST['register'])) {
 
 
     if(count($errors) == 0){
+
         $sel = "SELECT * FROM peers WHERE fullname = '$name' AND email = '$email' AND phone = '$number'";
         $run = $conn->query($sel);
 
-        echo "user does not exist";
+        if (mysqli_num_rows($run) > 0) {
+            $msg = "user already exist";
+        }
+        else{
+            
+            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date, image) 
+                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', 'password', 'active', '".$dob."', 'image' )";
+            $get = $conn->query($insert);
 
-    }
-    else{
-        echo "user already exist";
-    }
+            if ($get) {
 
+                if ($role == 'agent') {
+
+                    $sel = "SELECT MAX(id) AS extension FROM peers";
+                    $selR = $conn->query($sel);
+
+                    $row = mysqli_fetch_array($selR);
+                    $last_id = $row['extension'];
+
+                    $agent = "UPDATE peers SET extension = '$ex' WHERE id = '$last_id'";
+                    $ex = $conn->query($agent);
     
+                    if (!$ex) {
+                        $msg = "Not inserted".mysqli_error($conn);
+                    }
+                    else{
+                        header('location: ../form.php');
+                    }
+                }
+                else{
+                    // echo "GOODY";
+                }
+            }
+            else{
+                $msg = "didnt work".mysqli_error($conn);
+            }
+
+        }
+
+    }
+
 
 }
 else{
-    echo 'bad';
+    $msg = 'bad';
 }
 
 ?>

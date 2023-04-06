@@ -1,6 +1,7 @@
 <?php
 
-require_once('sip_backend/connection.php');
+require_once('sip_backend/reg_operation.php');
+
 
 ?>
 
@@ -263,7 +264,11 @@ require_once('sip_backend/connection.php');
 								<div class="x_content">
 									<br />
 
-										<form action="sip_backend/reg_operation.php" method="POST" enctype="multiple/form-data" novalidate id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+										<form action="" method="POST" enctype="multiple/form-data" novalidate id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+											<div>
+												<span class="error"> <?php echo $msg; ?> </span>
+											</div>
 
 											<div class="item form-group">
 												<label class="col-form-label col-md-3 col-sm-3 label-align" for="full-name">Full Name <span class="required">*</span>
