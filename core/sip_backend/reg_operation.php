@@ -77,8 +77,8 @@ if (isset($_POST['register'])) {
         }
         else{
             
-            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date, image) 
-                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', 'password', 'active', '".$dob."', 'image' )";
+            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date) 
+                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', 'password', 'active', '".$dob."' )";
             $get = $conn->query($insert);
 
             if ($get) {
@@ -114,9 +114,6 @@ if (isset($_POST['register'])) {
     }
 
 
-}
-else{
-    $msg = 'bad';
 }
 
 ?>
