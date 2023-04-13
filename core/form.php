@@ -2,6 +2,8 @@
 
 require_once('sip_backend/reg_operation.php');
 
+confirm_logged_in();
+
 
 ?>
 
@@ -222,7 +224,7 @@ require_once('sip_backend/reg_operation.php');
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="login2.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -303,10 +305,10 @@ require_once('sip_backend/reg_operation.php');
 											</div>
 
 											<div class="item form-group">
-												<label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
+												<label class="col-form-label col-md-3 col-sm-3 label-align">Date <span class="required">*</span>
 												</label>
 												<div class="col-md-6 col-sm-6 ">
-													<input id="birthday" class="date-picker form-control" name="dob" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+													<input id="birthday" class="date-picker form-control" name="date" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
 													<script>
 														function timeFunctionLong(input) {
 															setTimeout(function() {
@@ -318,10 +320,10 @@ require_once('sip_backend/reg_operation.php');
 											</div>
 
 											<div class="item form-group">
-												<label class="col-form-label col-md-3 col-sm-3 label-align" for="seeAnotherField">Role <span class="required">*</span>
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="">Role <span class="required">*</span>
 												</label>
 												<div class="col-md-6 col-sm-6  form-group has-feedback">
-													<select id="seeAnotherField" name="role" class="form-control">
+													<select id="inputSuccess3" name="role" class="form-control">
 														<option value="">Choose..</option>
 														<option value="manager">Manager</option>
 														<option value="agent">Agent</option>
@@ -329,10 +331,10 @@ require_once('sip_backend/reg_operation.php');
 												</div>
 											</div>
 
-										<div class="item form-group" id="otherFieldDiv">
+										<div class="item form-group">
 											<label for="extension" class="col-form-label col-md-3 col-sm-3 label-align">Extension</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="tel" id="otherField" class="form-control" name="ext">
+												<input type="tel" id="inputSuccess3" class="form-control" name="ext">
 											</div>
 										</div>
 

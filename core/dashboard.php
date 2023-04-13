@@ -2,6 +2,8 @@
 
 require_once('sip_backend/connection.php');
 
+confirm_logged_in();
+
 ?>
 
 <!DOCTYPE html>
@@ -200,7 +202,7 @@ require_once('sip_backend/connection.php');
                           <span>Settings</span>
                         </a>
                     <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login2.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="sip_backend/log_out.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   

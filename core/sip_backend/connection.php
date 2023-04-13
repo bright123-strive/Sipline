@@ -2,35 +2,31 @@
 
 session_start();
 
-$host = "localhost";
+$localhost = "localhost";
 $root = "root";
-$pass = "";
+$password = "";
 $db = "sip";
 
-$conn = mysqli_connect($host, $root, $pass, $db);
+$conn = mysqli_connect($localhost, $root, $password, $db);
 
-function log_in(){
-    return isset($_SESSION['fetchid']);
+function logged_in(){
+
+	return isset($_SESSION['fetchid']);
+
 }
 
-function confirm_log_in(){
-    
-    if(!log_in()){
-        ?>
-        <script src="" type="text/javascript">
-            window.location = "../login2.php"
-        </script>
-        <?php
-    }
+function confirm_logged_in(){
+
+	if (!logged_in()) {
+
+		?>
+
+		<script type="text/javascript">
+			window.location = "index.php";
+		</script>
+<?php
+
+	}
 }
-
-// error_reporting(2);
-
-// if($conn){
-//     echo "GOOD";
-// }
-// else{
-//     echo "BAD";
-// }
 
 ?>
