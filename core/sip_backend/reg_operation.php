@@ -61,9 +61,11 @@ if (isset($_POST['register'])) {
             $msg = "user already exist";
         }
         else{
+
+            $pass = md5('password');
             
             $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date) 
-                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', 'password', 'active', '".$dob."' )";
+                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', '".$pass."', 'active', '".$dob."' )";
             $get = $conn->query($insert);
 
             if ($get) {
