@@ -5,7 +5,7 @@ session_start();
 $host = "localhost";
 $root = "root";
 $pass = "";
-$db = "asterisk";
+$db = "sip";
 
 $conn = mysqli_connect($host, $root, $pass, $db);
 
@@ -24,13 +24,13 @@ function confirm_log_in(){
     }
 }
 
-error_reporting(2);
+// error_reporting(2);
 
-if($conn){
-    echo "GOOD";
-}
-else{
-    echo "BAD";
-}
+// if($conn){
+//     echo "GOOD";
+// }
+// else{
+//     echo "BAD";
+// }
 
 ?>

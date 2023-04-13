@@ -64,8 +64,8 @@ if (isset($_POST['register'])) {
 
             $pass = md5('password');
             
-            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date) 
-                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', '".$pass."', 'active', '".$dob."' )";
+            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date, image) 
+                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', '".$pass."', 'active', '".$dob."', '".$fileType."' )";
             $get = $conn->query($insert);
 
             if ($get) {
