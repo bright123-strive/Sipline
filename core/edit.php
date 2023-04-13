@@ -1,3 +1,9 @@
+<?php
+
+require_once('sip_backend/connection.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>SIP ICALL | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +41,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -47,7 +53,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?php echo $_SESSION['fetchname']; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -59,36 +65,40 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
-                    </ul>
-                  </li>
+
+                  	<li><a href="dashboard.php"><i class="fa fa-home"></i> Home </a></li>
+						<!-- <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a href="index.html">Dashboard</a></li>
+								<li><a href="index2.html">Dashboard2</a></li>
+								<li><a href="index3.html">Dashboard3</a></li>
+							</ul>
+						</li> -->
+
+						<li><a href="form.php"><i class="fa fa-user-plus"></i> Registration </a></li>
+							<!-- <ul class="nav child_menu"> <span class="fa fa-chevron-down"></span>
+								<li><a href="form.html">General Form</a></li>
+								<li><a href="form_advanced.html">Advanced Components</a></li>
+								<li><a href="form_validation.html">Form Validation</a></li>
+								<li><a href="form_wizards.html">Form Wizard</a></li>
+								<li><a href="form_upload.html">Form Upload</a></li>
+								<li><a href="form_buttons.html">Form Buttons</a></li>
+							</ul> -->
+
+						<li><a href="edit.php"><i class="fa fa-edit"></i> Edit </a>
+                    		<!-- <ul class="nav child_menu">
+								<li><a href="general_elements.html">General Elements</a></li>
+								<li><a href="media_gallery.html">Media Gallery</a></li>
+								<li><a href="typography.html">Typography</a></li>
+								<li><a href="icons.html">Icons</a></li>
+								<li><a href="glyphicons.html">Glyphicons</a></li>
+								<li><a href="widgets.html">Widgets</a></li>
+								<li><a href="invoice.html">Invoice</a></li>
+								<li><a href="inbox.html">Inbox</a></li>
+								<li><a href="calendar.html">Calendar</a></li>
+                    		</ul> -->
+                  		</li>
+
                   <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
@@ -765,7 +775,7 @@
               </div>
             </div>
 
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Daily active users <small>Sessions</small></h2>
@@ -847,9 +857,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Daily active users <small>Sessions</small></h2>
@@ -879,9 +889,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2><i class="fa fa-chevron-down"></i> Dropdowns <small>Multiple dropdown designs</small></h2>
@@ -943,9 +953,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2><i class="fa fa-square-o"></i> Modals</h2>
@@ -966,8 +976,8 @@
                 </div>
                 <div class="x_content">
 
-                  <!-- modals -->
-                  <!-- Large modal -->
+                  <!- modals -->
+                  <!-- Large modal ->
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
 
                   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
@@ -993,7 +1003,7 @@
                     </div>
                   </div>
 
-                  <!-- Small modal -->
+                  <!- Small modal ->
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
 
                   <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1018,14 +1028,12 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /modals -->
+                  <!- /modals ->
                 </div>
               </div>
-            </div>
+            </div> -->
 
-
-
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2><i class="fa fa-bell"></i> Notifications <small>Styled & Custom notifications</small></h2>
@@ -1191,10 +1199,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
 
-
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Pop Overs <small>Sessions</small></h2>
@@ -1238,11 +1245,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
 
-
-
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="x_panel">
                 <div class="x_title">
                   <h2><i class="fa fa-align-left"></i> Progress bar<small>Sessions</small></h2>
@@ -1280,14 +1285,12 @@
                     <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
 
-
-
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- Start to do list -->
-            <div class="col-md-6 col-sm-6  ">
+            <!-- <div class="col-md-6 col-sm-6  ">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>To Do List <small>Sample tasks</small></h2>
@@ -1338,12 +1341,11 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- End to do list -->
 
-
-            <div class="col-md-6">
-              <div class="x_panel">
+            <!-- <div class="col-md-6">
+              	<div class="x_panel">
                 <div class="x_title">
                   <h2>Daily active users <small>Sessions</small></h2>
                   <ul class="nav navbar-right panel_toolbox">
@@ -1421,8 +1423,8 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
+            	</div>
+            </div> -->
           </div>
           <div class="clearfix"></div>
         </div>

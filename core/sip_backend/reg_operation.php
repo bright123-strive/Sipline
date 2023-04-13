@@ -13,10 +13,14 @@ if (isset($_POST['register'])) {
     $dob = $_POST['dob'];
     $role = $_POST['role'];
     $ex = $_POST['ext'];
-    $gender = $_POST['gender'];
+
+    $targetDir = "images/";
+    $fileName = basename($_FILES["file"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 
-    if (empty($name) || empty($number) || empty($dob) || empty($gender)) {
+    if (empty($name) || empty($number) || empty($dob)) {
         $msg = 'Fill in the Blank Field'.mysqli_error($conn);
         array_push($errors, $msg);
 
@@ -57,35 +61,37 @@ if (isset($_POST['register'])) {
             $msg = "user already exist";
         }
         else{
-            
+
+            $pass = md5('password');
+
             $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date, image) 
-                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', 'password', 'active', '".$dob."', 'image' )";
+                VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '0', '".$pass."', 'active', '".$dob."', '".$fileName."' )";
             $get = $conn->query($insert);
 
             if ($get) {
 
                 if ($role == 'agent') {
-
+    
                     $sel = "SELECT MAX(id) AS extension FROM peers";
                     $selR = $conn->query($sel);
-
+    
                     $row = mysqli_fetch_array($selR);
                     $last_id = $row['extension'];
-
+    
                     $agent = "UPDATE peers SET extension = '$ex' WHERE id = '$last_id'";
                     $ex = $conn->query($agent);
-    
+        
                     if (!$ex) {
                         $msg = "Not inserted".mysqli_error($conn);
                     }
                     else{
-
+    
                         $msg = "User Successfully Registared";
-                        
+                            
                         header('location: form.php');
                     }
                 }
-                
+                    
             }
             else{
                 $msg = "didnt work".mysqli_error($conn);

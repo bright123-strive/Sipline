@@ -29,7 +29,9 @@ if (isset($_POST['login'])) {
     else{ 
         if (count($errors) == 0) {
 
-            $qr = "SELECT * FROM peers WHERE email = '$email' AND password = '$pword'";
+            $password = md5($pword);
+
+            $qr = "SELECT * FROM peers WHERE email = '$email' AND password = '$password'";
             $run = $conn->query($qr) or die(mysqli_error($conn));
 
             if (mysqli_num_rows($run) > 0){
@@ -50,6 +52,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchemail'] = $fetch_email;
                             $_SESSION['fetchname'] = $fetch_fullname;
                             $_SESSION['fetchpwd'] = $fetch_pwd;
+                            $_SESSION['fetchimage'] = $fetch_image;
 
                             header("location: dashboard.php");
                         }
@@ -65,6 +68,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchemail'] = $fetch_email;
                             $_SESSION['fetchname'] = $fetch_fullname;
                             $_SESSION['fetchpwd'] = $fetch_pwd;
+                            $_SESSION['fetchimage'] = $fetch_image;
 
                             header('location:#');
                         }

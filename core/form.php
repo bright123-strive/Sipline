@@ -90,7 +90,7 @@ require_once('sip_backend/reg_operation.php');
 									</ul>
 								</li> -->
 
-								<li><a href="form.php"><i class="fa fa-edit"></i> Registration </a>
+								<li><a href="form.php"><i class="fa fa-user-plus"></i> Registration </a>
 									<!-- <ul class="nav child_menu"> <span class="fa fa-chevron-down"></span>
 										<li><a href="form.html">General Form</a></li>
 										<li><a href="form_advanced.html">Advanced Components</a></li>
@@ -100,8 +100,9 @@ require_once('sip_backend/reg_operation.php');
 										<li><a href="form_buttons.html">Form Buttons</a></li>
 									</ul> -->
 								</li>
-								<li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
+
+								<li><a href="edit.php"><i class="fa fa-edit"></i> Edit </a>
+									<!-- <ul class="nav child_menu">
 										<li><a href="general_elements.html">General Elements</a></li>
 										<li><a href="media_gallery.html">Media Gallery</a></li>
 										<li><a href="typography.html">Typography</a></li>
@@ -111,8 +112,9 @@ require_once('sip_backend/reg_operation.php');
 										<li><a href="invoice.html">Invoice</a></li>
 										<li><a href="inbox.html">Inbox</a></li>
 										<li><a href="calendar.html">Calendar</a></li>
-									</ul>
+									</ul> -->
 								</li>
+
 								<li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a href="tables.html">Tables</a></li>
@@ -211,7 +213,7 @@ require_once('sip_backend/reg_operation.php');
 						<ul class=" navbar-right">
 							<li class="nav-item dropdown open" style="padding-left: 15px;">
 								<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-									<img src="images/img.jpg" alt=""> <?php echo $_SESSION['fetchname']; ?>
+								<img src="images/img.jpg" alt=""><?php echo $_SESSION['fetchname']; ?>
 								</a>
 								<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -220,7 +222,7 @@ require_once('sip_backend/reg_operation.php');
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="login2.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -267,7 +269,7 @@ require_once('sip_backend/reg_operation.php');
 								<div class="x_content">
 									<br />
 
-										<form action="" method="POST" enctype="multiple/form-data" novalidate id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+										<form action="" method="POST" enctype="multipart/form-data" novalidate id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 											<div>
 												<span class="error"> <?php echo $msg; ?> </span>
@@ -335,16 +337,10 @@ require_once('sip_backend/reg_operation.php');
 										</div>
 
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
-											<div class="col-md-6 col-sm-6 ">
-												<div id="gender" class="btn-group" data-toggle="buttons">
-													<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-														<input type="radio" name="gender" value="male" class="join-btn"> Male
-													</label>
-													<label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-														<input type="radio" name="gender" value="female" class="join-btn"> Female
-													</label>
-												</div>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="img">Upload Image <span class="required">*</span> <br></label>
+											<div class="col-md-6 col-sm-6 form-group has-feedback">
+												<img src="" id="file-ip-1-preview" alt="">
+												<input type="file" name="file" id="file-ip-1" onchange="showPreview(event);">
 											</div>
 										</div>
 
