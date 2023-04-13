@@ -5,7 +5,7 @@ session_start();
 $host = "localhost";
 $root = "root";
 $pass = "";
-$db = "sip";
+$db = "asterisk";
 
 $conn = mysqli_connect($host, $root, $pass, $db);
 
@@ -18,19 +18,19 @@ function confirm_log_in(){
     if(!log_in()){
         ?>
         <script src="" type="text/javascript">
-            window.location = "../login.php"
+            window.location = "../login2.php"
         </script>
         <?php
     }
 }
 
-// error_reporting(2);
+error_reporting(2);
 
-// if($conn){
-//     echo "GOOD";
-// }
-// else{
-//     echo "BAD";
-// }
+if($conn){
+    echo "GOOD";
+}
+else{
+    echo "BAD";
+}
 
 ?>
