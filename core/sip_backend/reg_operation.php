@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
                 $msg = 'User Successfully Registered';
             }
             else{
-                $msg = 'User not Registered';
+                $msg = 'User not Registered'.mysqli_error($conn);
             }
 
         }

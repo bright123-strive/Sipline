@@ -58,7 +58,7 @@ confirm_logged_in();
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
+						<a href="form.php" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -224,7 +224,7 @@ confirm_logged_in();
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="sip_backend/log_out.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 

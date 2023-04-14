@@ -5,7 +5,7 @@ session_start();
 $localhost = "localhost";
 $root = "root";
 $password = "";
-$db = "sip";
+$db = "asterisk";
 
 $conn = mysqli_connect($localhost, $root, $password, $db);
 
