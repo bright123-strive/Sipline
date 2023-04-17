@@ -10,7 +10,6 @@ if (isset($_POST['register'])) {
     $name = $_POST['fname'];
     $email = $_POST['email'];
     $number = $_POST['number'];
-    $date = $_POST['date'];
     $role = $_POST['role'];
     $ext = $_POST['ext'];
 
@@ -20,7 +19,7 @@ if (isset($_POST['register'])) {
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 
-    if (empty($name) || empty($number) || empty($date)) {
+    if (empty($name) || empty($number)) {
         $msg = 'Fill in the Blank Field'.mysqli_error($conn);
         array_push($errors, $msg);
 
@@ -57,8 +56,8 @@ if (isset($_POST['register'])) {
 
             $pass = md5('password');
             
-            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, date, image) 
-                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '".$ext."', '".$pass."', 'active', '".$date."', '".$fileType."' )";
+            $insert = "INSERT INTO peers(email, fullname, phone, creator, role, extension, password, status, image) 
+                    VALUES('".$email."', '$name', '".$number."', '".$_SESSION['fetchid']."', '".$role."', '".$ext."', '".$pass."', 'active', '".$fileType."' )";
             $get = $conn->query($insert);
 
             if ($get) {
