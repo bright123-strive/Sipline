@@ -58,7 +58,7 @@ confirm_logged_in();
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
+						<a href="form.php" class="site_title"><i class="fa fa-phone"></i> <span>Sip iCall!</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -103,19 +103,26 @@ confirm_logged_in();
 									</ul> -->
 								</li>
 
-								<li><a href="edit.php"><i class="fa fa-edit"></i> Edit </a>
-									<!-- <ul class="nav child_menu">
-										<li><a href="general_elements.html">General Elements</a></li>
-										<li><a href="media_gallery.html">Media Gallery</a></li>
-										<li><a href="typography.html">Typography</a></li>
-										<li><a href="icons.html">Icons</a></li>
-										<li><a href="glyphicons.html">Glyphicons</a></li>
-										<li><a href="widgets.html">Widgets</a></li>
-										<li><a href="invoice.html">Invoice</a></li>
-										<li><a href="inbox.html">Inbox</a></li>
-										<li><a href="calendar.html">Calendar</a></li>
-									</ul> -->
-								</li>
+								<li><a href="edit.php"><i class="fa fa-table"></i> Edit</a>
+                    <!-- <ul class="nav child_menu">
+                      <li><a href="tables.html">Tables</a></li>
+                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                    </ul> -->
+                  </li>
+
+								<li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="general_elements.html">General Elements</a></li>
+                      <li><a href="media_gallery.html">Media Gallery</a></li>
+                      <li><a href="typography.html">Typography</a></li>
+                      <li><a href="icons.html">Icons</a></li>
+                      <li><a href="glyphicons.html">Glyphicons</a></li>
+                      <li><a href="widgets.html">Widgets</a></li>
+                      <li><a href="invoice.html">Invoice</a></li>
+                      <li><a href="inbox.html">Inbox</a></li>
+                      <li><a href="calendar.html">Calendar</a></li>
+                    </ul>
+                  </li>
 
 								<li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
@@ -224,7 +231,7 @@ confirm_logged_in();
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="sip_backend/log_out.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -301,21 +308,6 @@ confirm_logged_in();
 												<div class="col-md-6 col-sm-6 form-group has-feedback">
 													<input type="tel" name="number" id="inputSuccess3" class="form-control">
 													<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-												</div>
-											</div>
-
-											<div class="item form-group">
-												<label class="col-form-label col-md-3 col-sm-3 label-align">Date <span class="required">*</span>
-												</label>
-												<div class="col-md-6 col-sm-6 ">
-													<input id="birthday" class="date-picker form-control" name="date" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-													<script>
-														function timeFunctionLong(input) {
-															setTimeout(function() {
-																input.type = 'text';
-															}, 60000);
-														}
-													</script>
 												</div>
 											</div>
 
