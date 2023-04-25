@@ -11,24 +11,136 @@
     <title>Agent</title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="../../build/css/custom.min.css" rel="stylesheet">
+   
+
+
+    <script type="text/javascript">
+            // If you don't want to use a service worker, you can just take this code out.
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register("sw.js").catch(function(error) {
+                    console.error('Service Worker Error', error);
+                });
+            } else {
+                console.warn("Cannot make use of ServiceWorker");
+            }
+        </script>
+
+<script type="text/javascript">
+            // Provision runtime options can go here.
+            var phoneOptions = {
+                loadAlternateLang: true
+            }
+
+            // Occurs After the Language Packs load, at the start of the InitUi() function 
+            var web_hook_on_before_init = function(){
+                // console.warn("web_hook_on_before_init");
+            }
+            // Occurs at the end of the InitUi() function, before the User Agent is created.
+            // In order to follow events after the User Agent is created, use the register
+            // and transport events below. 
+            var web_hook_on_init = function(){
+                // console.warn("web_hook_on_init");
+            }
+
+            // Connection and Calling Events
+            var web_hook_on_transportError = function(t, ua){
+                // console.warn("web_hook_on_transportError",t, ua);
+            }
+            var web_hook_on_register = function(ua){
+                // console.warn("web_hook_on_register", ua);
+            }
+            var web_hook_on_registrationFailed = function(e){
+                // console.warn("web_hook_on_registrationFailed", e);
+            }
+            var web_hook_on_unregistered = function(){
+                // console.warn("web_hook_on_unregistered");
+            }
+            var web_hook_on_invite = function(session){
+                // console.warn("web_hook_on_invite", session);
+            }
+            var web_hook_on_message = function(message){
+                // console.warn("web_hook_on_message", message);
+            }
+            var web_hook_on_modify = function(action, session){
+                // console.warn("web_hook_on_modify", action, session);
+            }
+            var web_hook_on_dtmf = function(item, session){
+                // console.warn("web_hook_on_dtmf", item, session);
+            }
+            var web_hook_on_terminate = function(session){
+                // console.warn("web_hook_on_terminate", session);
+            }
+            var web_hook_on_notify = function(ContentType, buddyObj, notify){
+                // console.warn("web_hook_on_notify", ContentType, buddyObj, notify);
+            }
+            var web_hook_on_self_notify = function(ContentType, notify){
+                // console.warn("web_hook_on_self_notify", ContentType, notify);
+            }
+
+            // UI events
+            var web_hook_dial_out = function(event){
+                // console.warn("web_hook_dial_out", event);
+            }
+            var web_hook_on_add_buddy = function(event){
+                // console.warn("web_hook_on_add_buddy", event);
+            }
+            var web_hook_on_edit_buddy = function(buddyJson){
+                // console.warn("web_hook_on_edit_buddy", buddyJson);
+            }            
+            var web_hook_on_config_menu = function(event){
+                // console.warn("web_hook_on_config_menu", event);
+            }
+            var web_hook_on_messages_waiting = function(newMsg, oldMsg, ugentNew, ugentOld){
+                // console.warn("web_hook_on_messages_waiting", newMsg, oldMsg, ugentNew, ugentOld);
+            }
+            var web_hook_on_missed_notify = function(missed){
+                // console.warn("web_hook_on_missed_notify", missed);
+            }
+            var web_hook_on_expand_video_area = function(lineNum){
+                // console.warn("web_hook_on_expand_video_area", lineNum);
+            }
+            var web_hook_on_restore_video_area = function(lineNum){
+                // console.warn("web_hook_on_restore_video_area", lineNum);
+            }
+            var web_hook_on_message_action = function(buddy, obj){
+                // console.warn("web_hook_on_message_action", buddy, obj);
+            }
+            var web_hook_disable_dnd = function(){
+                // console.warn("web_hook_disable_dnd");
+            }
+            var web_hook_enable_dnd = function(){
+                // console.warn("web_hook_enable_dnd");
+            }
+            var web_hook_on_edit_media = function(lineNum, obj){
+                // console.warn("web_hook_on_edit_media", lineNum, obj);
+            }
+            var web_hook_sort_and_filter = function(event){
+                // console.warn("web_hook_sort_and_filter", event);
+            }
+
+        </script>
   </head>
+  
+
+
+
 
   <body class="nav-md">
     <div class="container body">
@@ -44,7 +156,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="../images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -387,7 +499,7 @@
             <div class="col-md-6 col-sm-12 ">
               <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                  <h2>App Versions</h2>
+                  <h2>App </h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -569,12 +681,12 @@
               </div>
             </div> -->
 
-
             <div class="col-md-6 col-sm-12" >
               <div class="x_panel tile fixed_height_320">
-               
+               bright
               </div>
             </div>
+            
 
           </div>
 
@@ -921,45 +1033,47 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="../../vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="../../vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <script src="../../vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
+    <script src="../../vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.resize.js"></script>
     <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
+    <script src="../../vendors/DateJS/build/date.js"></script>
     <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../../vendors/moment/min/moment.min.js"></script>
+    <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="../../build/js/custom.min.js"></script>
+
+    
 	
   </body>
 </html>
