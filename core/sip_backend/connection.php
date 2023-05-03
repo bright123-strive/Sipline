@@ -3,8 +3,8 @@
 session_start();
 
 $localhost = "localhost";
-$root = "root";
-$password = "sipline12"
+$root = "sipline";
+$password = "sipline12";
 $db = "asterisk";
 
 $conn = mysqli_connect($localhost, $root, $password, $db);
