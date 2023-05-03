@@ -18,6 +18,7 @@
     <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="phone.css"/>
 	
     <!-- bootstrap-progressbar -->
     <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -28,114 +29,44 @@
 
     <!-- Custom Theme Style -->
     <link href="../../build/css/custom.min.css" rel="stylesheet">
-   
+
+  <!-- phone styles -->
+  <script type="text/javascript" src="https://dtd6jl0d42sve.cloudfront.net/lib/SipJS/sip-0.20.0.min.js"></script>
+        <script type="text/javascript" src="https://dtd6jl0d42sve.cloudfront.net/lib/FabricJS/fabric-2.4.6.min.js"></script>
+        <script type="text/javascript" src="https://dtd6jl0d42sve.cloudfront.net/lib/Moment/moment-with-locales-2.24.0.min.js"></script>
+        <script type="text/javascript" src="https://dtd6jl0d42sve.cloudfront.net/lib/Croppie/Croppie-2.6.4/croppie.min.js"></script>
+        <script type="text/javascript" src="https://dtd6jl0d42sve.cloudfront.net/lib/XMPP/strophe-1.4.1.umd.min.js"></script>
+        <script type="text/javascript" src="phone.js"></script>
+
+  <!-- phone end -->
 
 
-    <script type="text/javascript">
-            // If you don't want to use a service worker, you can just take this code out.
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register("sw.js").catch(function(error) {
-                    console.error('Service Worker Error', error);
-                });
-            } else {
-                console.warn("Cannot make use of ServiceWorker");
-            }
-        </script>
-
-<script type="text/javascript">
+  <script type="text/javascript">
             // Provision runtime options can go here.
-            var phoneOptions = {
-                loadAlternateLang: true
-            }
-
-            // Occurs After the Language Packs load, at the start of the InitUi() function 
-            var web_hook_on_before_init = function(){
-                // console.warn("web_hook_on_before_init");
-            }
-            // Occurs at the end of the InitUi() function, before the User Agent is created.
-            // In order to follow events after the User Agent is created, use the register
-            // and transport events below. 
-            var web_hook_on_init = function(){
-                // console.warn("web_hook_on_init");
-            }
-
-            // Connection and Calling Events
-            var web_hook_on_transportError = function(t, ua){
-                // console.warn("web_hook_on_transportError",t, ua);
-            }
-            var web_hook_on_register = function(ua){
-                // console.warn("web_hook_on_register", ua);
-            }
-            var web_hook_on_registrationFailed = function(e){
-                // console.warn("web_hook_on_registrationFailed", e);
-            }
-            var web_hook_on_unregistered = function(){
-                // console.warn("web_hook_on_unregistered");
-            }
-            var web_hook_on_invite = function(session){
-                // console.warn("web_hook_on_invite", session);
-            }
-            var web_hook_on_message = function(message){
-                // console.warn("web_hook_on_message", message);
-            }
-            var web_hook_on_modify = function(action, session){
-                // console.warn("web_hook_on_modify", action, session);
-            }
-            var web_hook_on_dtmf = function(item, session){
-                // console.warn("web_hook_on_dtmf", item, session);
-            }
-            var web_hook_on_terminate = function(session){
-                // console.warn("web_hook_on_terminate", session);
-            }
-            var web_hook_on_notify = function(ContentType, buddyObj, notify){
-                // console.warn("web_hook_on_notify", ContentType, buddyObj, notify);
-            }
-            var web_hook_on_self_notify = function(ContentType, notify){
-                // console.warn("web_hook_on_self_notify", ContentType, notify);
-            }
-
-            // UI events
-            var web_hook_dial_out = function(event){
-                // console.warn("web_hook_dial_out", event);
-            }
-            var web_hook_on_add_buddy = function(event){
-                // console.warn("web_hook_on_add_buddy", event);
-            }
-            var web_hook_on_edit_buddy = function(buddyJson){
-                // console.warn("web_hook_on_edit_buddy", buddyJson);
-            }            
-            var web_hook_on_config_menu = function(event){
-                // console.warn("web_hook_on_config_menu", event);
-            }
-            var web_hook_on_messages_waiting = function(newMsg, oldMsg, ugentNew, ugentOld){
-                // console.warn("web_hook_on_messages_waiting", newMsg, oldMsg, ugentNew, ugentOld);
-            }
-            var web_hook_on_missed_notify = function(missed){
-                // console.warn("web_hook_on_missed_notify", missed);
-            }
-            var web_hook_on_expand_video_area = function(lineNum){
-                // console.warn("web_hook_on_expand_video_area", lineNum);
-            }
-            var web_hook_on_restore_video_area = function(lineNum){
-                // console.warn("web_hook_on_restore_video_area", lineNum);
-            }
-            var web_hook_on_message_action = function(buddy, obj){
-                // console.warn("web_hook_on_message_action", buddy, obj);
-            }
-            var web_hook_disable_dnd = function(){
-                // console.warn("web_hook_disable_dnd");
-            }
-            var web_hook_enable_dnd = function(){
-                // console.warn("web_hook_enable_dnd");
-            }
-            var web_hook_on_edit_media = function(lineNum, obj){
-                // console.warn("web_hook_on_edit_media", lineNum, obj);
-            }
-            var web_hook_sort_and_filter = function(event){
-                // console.warn("web_hook_sort_and_filter", event);
-            }
-
+            var phoneOptions = {loadAlternateLang: true}
+            var web_hook_on_transportError = function(t, ua){}
+            var web_hook_on_register = function(ua){}
+            var web_hook_on_registrationFailed = function(e){}
+            var web_hook_on_unregistered = function(){ }
+            var web_hook_on_invite = function(session){}
+            var web_hook_on_message = function(message){}
+            var web_hook_on_modify = function(action, session){}
+            var web_hook_on_dtmf = function(item, session){}
+            var web_hook_on_terminate = function(session){}
         </script>
+
+        <style>
+    div.bluV {
+    position: absolute;
+    right: 2%;
+    top: 11%;
+    width: 84%;
+    height: 86%;
+    border: 1px solid #b7c7cf;
+    border-radius:3px;
+    }
+        </style>
+
   </head>
   
 
@@ -172,12 +103,12 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                  <li><a href="index.php"><i class="fa fa-phone"></i> Phone </a>
+                    <!-- <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
                       <li><a href="index2.html">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
                   <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -202,13 +133,13 @@
                       <li><a href="calendar.html">Calendar</a></li>
                     </ul>
                   </li> -->
-                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
                       <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                     </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  <!-- <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">Chart JS</a></li>
                       <li><a href="chartjs2.html">Chart JS2</a></li>
@@ -216,16 +147,16 @@
                       <li><a href="echarts.html">ECharts</a></li>
                       <li><a href="other_charts.html">Other Charts</a></li>
                     </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  <!-- <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
                       <li><a href="fixed_footer.html">Fixed Footer</a></li>
                     </ul>
                   </li>
-                </ul>
+                </ul> -->
               </div>
-              <div class="menu_section">
+              <!-- <div class="menu_section">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
@@ -266,7 +197,7 @@
                   </li>                  
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
-              </div>
+              </div> -->
 
             </div>
             <!-- /sidebar menu -->
@@ -683,7 +614,11 @@
 
             <div class="col-md-6 col-sm-12" >
               <div class="x_panel tile fixed_height_320">
-               bright
+              <div class="bluV">
+                <!-- Loading Animation for the phone -->
+                  <!--Actual Phone-->
+                <div id=Phone></div>
+            </div>
               </div>
             </div>
             

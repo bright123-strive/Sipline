@@ -62,24 +62,14 @@ let loadAlternateLang = (getDbItem("loadAlternateLang", "0") == "1"); // Enables
 
 // User Settings & Defaults
 // ========================
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-let serverIPAUth = urlParams.get('pIPname');
-let serverPortAuth = "8089";
-let serverPathAuth = "/ws";
-let myExtenAuth = urlParams.get('extnum');
-let myProfileNameAuth = urlParams.get('pname');
-let myUserNameAuth = urlParams.get('make');
-let mySipPasswordAuth = urlParams.get('version');
-
 let profileUserID = getDbItem("profileUserID", null);   // Internal reference ID. (DON'T CHANGE THIS!)
-let profileUser = getDbItem("profileUser", myExtenAuth);       // eg: 100
-let profileName = getDbItem("profileName", myProfileNameAuth);       // eg: Keyla James
-let wssServer = getDbItem("wssServer", serverIPAUth);           // eg: raspberrypi.local
-let WebSocketPort = getDbItem("WebSocketPort", serverPortAuth);   // eg: 444 | 4443
-let ServerPath = getDbItem("ServerPath", serverPathAuth);         // eg: /ws
-let SipUsername = getDbItem("SipUsername", myUserNameAuth);       // eg: webrtc
-let SipPassword = getDbItem("SipPassword", mySipPasswordAuth);       // eg: webrtc
+let profileUser = getDbItem("profileUser", null);       // eg: 100
+let profileName = getDbItem("profileName", null);       // eg: Keyla James
+let wssServer = getDbItem("wssServer", null);           // eg: raspberrypi.local
+let WebSocketPort = getDbItem("WebSocketPort", null);   // eg: 444 | 4443
+let ServerPath = getDbItem("ServerPath", null);         // eg: /ws
+let SipUsername = getDbItem("SipUsername", null);       // eg: webrtc
+let SipPassword = getDbItem("SipPassword", null);       // eg: webrtc
 
 let TransportConnectionTimeout = parseInt(getDbItem("TransportConnectionTimeout", 15));        // The timeout in seconds for the initial connection to make on the web socket port
 let TransportReconnectionAttempts = parseInt(getDbItem("TransportReconnectionAttempts", 999));  // The number of times to attempt to reconnect to a WebSocket when the connection drops.
@@ -102,7 +92,7 @@ let RecordAllCalls = (getDbItem("RecordAllCalls", "0") == "1");             // S
 let StartVideoFullScreen = (getDbItem("StartVideoFullScreen", "1") == "1"); // Starts a vdeo call in the full screen (browser screen, not dektop)
 let SelectRingingLine = (getDbItem("SelectRingingLine", "1") == "1");       // Selects the ringing line if you are not on another call ()
 
-let UiMaxWidth = parseInt(getDbItem("UiMaxWidth", 1240));                     // Sets the max-width for the UI elements (don't set this less than 920. Set to very high number for full screen eg: 999999)
+let UiMaxWidth = parseInt(getDbItem("UiMaxWidth", 100));                     // Sets the max-width for the UI elements (don't set this less than 920. Set to very high number for full screen eg: 999999)
 let UiThemeStyle = getDbItem("UiThemeStyle", "system");                       // Sets the colour theme for the UI dark | light | system (set by your systems dark/light settings)
 let UiMessageLayout = getDbItem("UiMessageLayout", "middle");                 // Put the message Stream at the top or middle can be either: top | middle 
 let UiCustomConfigMenu = (getDbItem("UiCustomConfigMenu", "0") == "1");       // If set to true, will only call web_hook_on_config_menu
@@ -1047,12 +1037,12 @@ function InitUi(){
     var phone = $("#Phone");
     phone.empty();
     phone.attr("class", "pageContainer");
-    phone.css("max-width", UiMaxWidth + "px");
+    phone.css("max-width", UiMaxWidth + "%");
 
     // Left Section
     var leftSection = $("<div/>");
     leftSection.attr("id", "leftContent");
-    leftSection.attr("style", "float:left; height: 100%; width:320px");
+    leftSection.attr("style", "float:left; height: 100%; width:100%");
 
     var leftHTML = "<table id=leftContentTable class=leftContentTable style=\"height:100%; width:100%\" cellspacing=0 cellpadding=0>";
     leftHTML += "<tr><td class=streamSection style=\"height: 90px; box-sizing: border-box;\">";
@@ -7812,7 +7802,35 @@ function AddLineHtml(lineObj){
     html += "<div style=\"float:left; margin:0px; padding:5px; height:38px; line-height:38px\">"
     html += "<button id=\"line-"+ lineObj.LineNumber +"-btn-back\" onclick=\"CloseLine('"+ lineObj.LineNumber +"')\" class=roundButtons title=\""+ lang.back +"\"><i class=\"fa fa-chevron-left\"></i></button> ";
     html += "</div>"
+    
 
+    ////    passing json object
+   
+    document.getElementById("phoneNumberOfCaller").innerHTML = lineObj.DisplayNumber;
+    document.getElementById("nameOfCaller").innerHTML = userDdata[lineObj.DisplayNumber][0][0];
+    document.getElementById("addressOfCUstomer").innerHTML = userDdata[lineObj.DisplayNumber][0][2];
+    document.getElementById("CustomerEmails").innerHTML = userDdata[lineObj.DisplayNumber][0][3];
+    document.getElementById("AMLoanOfPerson").innerHTML = userDdata[lineObj.DisplayNumber][0][4];
+    document.getElementById("CRLoanINOfPerson").innerHTML = userDdata[lineObj.DisplayNumber][0][5];
+    document.getElementById("MAPLoanINOfPerson").innerHTML = userDdata[lineObj.DisplayNumber][0][6];
+    document.getElementById("LMPLoanINOfPerson").innerHTML = userDdata[lineObj.DisplayNumber][0][7];
+    
+    let text = "<br>";
+    text += "<table class='table table-striped'><tr><td><b>Date</b></td><td>Agent Name</td><td>Notes</td><td>CallBack Time</td><td>Notification</td><td>Disposition</td></tr>";
+    for (let i = 0; i < 3; i++) {
+    text += "<tr>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][1]+"</td>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][2]+"</td>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][3]+"</td>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][5]+"</td>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][4]+"</td>";
+        text += "<td>"+userDdata[lineObj.DisplayNumber][1][i][6]+"</td>";
+    text +="</tr>";
+    }
+    text += "</table>";
+    document.getElementById("callingHistory").innerHTML = text;
+
+    //CUSTOME DIFINITION ENDS HERE
     // Profile UI
     html += "<div class=contact style=\"cursor: unset; float: left;\">";
     html += "<div id=\"line-ui-"+ lineObj.LineNumber +"-LineIcon\" class=lineIcon>"+ lineObj.LineNumber +"</div>";
@@ -8725,7 +8743,7 @@ function AddBuddyMessageStream(buddyObj) {
     profileRow += " <button id=\"contact-"+ buddyObj.identity +"-btn-toggle-extra\" onclick=\"ToggleExtraButtons('"+ buddyObj.identity +"', "+ buttonsWidth +", "+ fullButtonsWidth +")\" class=roundButtons><i class=\"fa fa-ellipsis-h\"></i></button>";
     profileRow += "</td>";
 
-    profileRow += "</tr></table>";
+    profileRow += "</tr><<button id=\"contact-"+ buddyObj.identity +"-btn-audioCall\" onclick=\"AudioCallMenu('"+ buddyObj.identity +"', this)\" class=roundButtons title=\""+ lang.audio_call +"\"><i class=\"fa fa-phone\"></i></button>";
     profileRow += "</div>";
 
     // Separator
@@ -10395,17 +10413,18 @@ function ShowDictate(buddy){
 // My Profile
 // ==========
 function ShowMyProfile(){
+    
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    
     let serverIPAUth = urlParams.get('pIPname');
+    let serverPortAuth = "8089";
+    let serverPathAuth = "/ws";
     let myExtenAuth = urlParams.get('extnum');
     let myProfileNameAuth = urlParams.get('pname');
     let myUserNameAuth = urlParams.get('make');
     let mySipPasswordAuth = urlParams.get('version');
 
     ShowContacts();
-    
 
     $("#myContacts").hide();
     $("#actionArea").empty();
@@ -10419,26 +10438,26 @@ function ShowMyProfile(){
         html += "<div class=UiTextHeading onclick=\"ToggleHeading(this,'Configure_Extension_Html')\"><i class=\"fa fa-user-circle-o UiTextHeadingIcon\" style=\"background-color:#a93a3a\"></i> "+ lang.account +"</div>"
     }
     var AccountHtml =  "<div id=Configure_Extension_Html style=\"display:none\">";
-    AccountHtml += "<div class=UiText>"+ lang.asterisk_server_address +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_wssServer class=UiInputText type=text placeholder='"+ lang.eg_asterisk_server_address +"' value='"+ getDbItem("wssServer", serverIPAUth) +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_wssServer class=UiInputText type=text placeholder='"+ lang.eg_asterisk_server_address +"' value='"+ getDbItem("wssServer", serverIPAUth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.websocket_port +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_WebSocketPort class=UiInputText type=text placeholder='"+ lang.eg_websocket_port +"' value='"+ getDbItem("WebSocketPort", "8089") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_WebSocketPort class=UiInputText type=text placeholder='"+ lang.eg_websocket_port +"' value='"+ getDbItem("WebSocketPort", serverPortAuth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.websocket_path +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_ServerPath class=UiInputText type=text placeholder='"+ lang.eg_websocket_path +"' value='"+ getDbItem("ServerPath", "/ws") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_ServerPath class=UiInputText type=text placeholder='"+ lang.eg_websocket_path +"' value='"+ getDbItem("ServerPath", serverPathAuth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.internal_subscribe_extension +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_profileUser class=UiInputText type=text placeholder='"+ lang.eg_internal_subscribe_extension +"' value='"+ getDbItem("profileUser", myExtenAuth) +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_profileUser class=UiInputText type=text placeholder='"+ lang.eg_internal_subscribe_extension +"' value='"+ getDbItem("profileUser", myExtenAuth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.full_name +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_profileName class=UiInputText type=text placeholder='"+ lang.eg_full_name +"' value='"+ getDbItem("profileName", myProfileNameAuth) +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_profileName class=UiInputText type=text placeholder='"+ lang.eg_full_name +"' value='"+ getDbItem("profileName", myProfileNameAuth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.sip_username +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_SipUsername class=UiInputText type=text placeholder='"+ lang.eg_sip_username +"' value='"+ getDbItem("SipUsername", myUserNameAuth) +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_SipUsername class=UiInputText type=text placeholder='"+ lang.eg_sip_username +"' value='"+ getDbItem("SipUsername", myUserNameAuth) +"'></div>";
 
-    AccountHtml += "<div class=UiText>"+ lang.sip_password +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_SipPassword class=UiInputText type=password placeholder='"+ lang.eg_sip_password +"' value='"+ getDbItem("SipPassword", mySipPasswordAuth) +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden id=Configure_Account_SipPassword class=UiInputText type=password placeholder='"+ lang.eg_sip_password +"' value='"+ getDbItem("SipPassword",mySipPasswordAuth) +"'></div>";
 
     AccountHtml += "<div class=UiText>"+ lang.chat_engine +":</div>";
 
@@ -10449,17 +10468,17 @@ function ShowMyProfile(){
 
     AccountHtml += "<div id=RowChatEngine_xmpp style=\"display:"+ ((ChatEngine == "XMPP")? "unset" : "none") +"\">";
 
-    AccountHtml += "<div class=UiText>XMPP "+ lang.xmpp_domain +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_xmpp_domain class=UiInputText type=text placeholder='"+ lang.eg_xmpp_domain +"' value='"+ getDbItem("XmppDomain", "") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input  type=hidden id=Configure_Account_xmpp_domain class=UiInputText type=text placeholder='"+  +"' value='"+ getDbItem("XmppDomain", "") +"'></div>";
 
-    AccountHtml += "<div class=UiText>XMPP "+ lang.server_address +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_xmpp_address class=UiInputText type=text placeholder='"+ lang.eg_xmpp_server_address +"' value='"+ getDbItem("XmppServer", "") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input  type=hidden id=Configure_Account_xmpp_address class=UiInputText type=text placeholder='"+  +"' value='"+ getDbItem("XmppServer", "") +"'></div>";
 
-    AccountHtml += "<div class=UiText>XMPP "+ lang.websocket_port +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_xmpp_port class=UiInputText type=text placeholder='"+ lang.eg_websocket_port +"' value='"+ getDbItem("XmppWebsocketPort", "") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input type=hidden  id=Configure_Account_xmpp_port class=UiInputText type=text placeholder='"+  +"' value='"+ getDbItem("XmppWebsocketPort", "") +"'></div>";
 
-    AccountHtml += "<div class=UiText>XMPP "+ lang.websocket_path +":</div>";
-    AccountHtml += "<div><input id=Configure_Account_xmpp_path class=UiInputText type=text placeholder='"+ lang.eg_websocket_path +"' value='"+ getDbItem("XmppWebsocketPath", "") +"'></div>";
+    AccountHtml += "<div class=UiText></div>";
+    AccountHtml += "<div><input  type=hidden id=Configure_Account_xmpp_path class=UiInputText type=text placeholder='"+  +"' value='"+ getDbItem("XmppWebsocketPath", "") +"'></div>";
     AccountHtml += "</div>";
 
     AccountHtml += "</div>";
