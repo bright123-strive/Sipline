@@ -199,7 +199,8 @@
             </div> -->
             <!-- Contents starts here-->
             <br>
-            <button class="btn btn-success"><a href="agentdashboard.php">Go back Dashboard</a></button>
+            <a href="agentdashboard.php" class="btn btn-success btn-lg">Go back to Dashboard</a>
+
             <div class="content" id="content">
                 
             <div id="tabs">
