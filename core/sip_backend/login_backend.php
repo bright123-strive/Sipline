@@ -70,7 +70,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchpwd'] = $fetch_pwd;
                             $_SESSION['fetchimage'] = $fetch_image;
 
-                            header("location: agents/index.php");
+                            header("location: agents/Click2dials/index.php");
                         }
                         else{
                             $msg = "User not Active! Contact your Administrator";

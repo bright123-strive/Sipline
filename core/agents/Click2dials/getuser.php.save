@@ -1,0 +1,57 @@
+<?php
+session_start();
+
+include("../../modules/dbco.php");
+//because campaigns are dynamically assigned by supervisor
+
+
+$q = "xLeads_Chipiku";//
+$sql="SELECT * FROM ".$q." WHERE c20='0' LIMIT 10";
+$result = mysqli_query($conn,$sql);
+
+echo"<div class='Row' style='display: table;width: 100%;table-layout: fixed;border-spacing: 1px;align:right;background-color:#FFFB77; margin: auto;'>
+<h4><b>".$q." Campaign</b></h4></div><br>";
+
+echo "<table class='table table-hover table-striped tableA' id='tableA' style='width: 100%;border-collapse: collapse;'>
+<tr>
+<th>C0</th>
+<th>C1</th>
+<th>C2</th>
+<th>C3</th>
+<th>C4</th>
+<th>C5</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+  echo "<tr id='".$row['c0']."'onclick='highlight(this.id); popupCenter(\"called_users.php?person_id=".$row['c0']."\");'>";
+  echo "<td>" . $row['c0'] . "</td>";
+  echo "<td>" . $row['c1'] . "</td>";
+  echo "<td>" . $row['c2'] . "</td>";
+  echo "<td>" . $row['c3'] . "</td>";
+  echo "<td>" . $row['c4'] . "</td>";
+  echo "<td>" . $row['c5'] . "</td>";
+  echo "</tr>";
+}
+echo "</table>";
+mysqli_close($conn);
+
+/*
+include("../modules/dbco.php");
+header('Content-Type: application/json');
+mysqli_select_db($conn,"ajax_demo");
+$sql="SELECT * FROM xleads_t2 WHERE c20='0' LIMIT 10";
+$result = mysqli_query($conn,$sql);
+while($row = mysqli_fetch_array($result)) {
+    $apiJsonData[] = [
+        'c0' => $row['c0'],
+        'c1' => $row['c1'],
+        'c2' => $row['c2'],
+        'c3' => $row['c3'],
+        'c4' => $row['c4'],
+        'c5' => $row['c5'],
+        'c6' => $row['c6']
+    ];
+}
+mysqli_close($conn);
+echo json_encode($apiJsonData);*/
+?>
+
