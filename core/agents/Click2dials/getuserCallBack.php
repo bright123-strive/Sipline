@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("../../modules/dbco.php");
+//include("../../modules/dbco.php");
 //because campaigns are dynamically assigned by supervisor
 
 

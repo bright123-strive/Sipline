@@ -1,9 +1,7 @@
 <?php
+require_once('sip_backend/connection.php');
 
-// require_once('../sip_backend/connection.php');
-
-// confirm_logged_in();
-
+confirm_logged_in();
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +68,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
 
-              <li><a href="index.php"><i class="fa fa-phone"></i>Phone </a></li>
+              <li><a href="agents/click2dials/index.php"><i class="fa fa-phone"></i>Phone </a></li>
 					<!-- <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 						<li><a href="index.html">Dashboard</a></li>

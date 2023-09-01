@@ -1,6 +1,7 @@
 <?php
 
 require_once("connection.php");
+session_start();
 
 $msg = "";
 $errors = array();
@@ -29,12 +30,14 @@ if (isset($_POST['login'])) {
     else{ 
         if (count($errors) == 0) {
 
-            $password = md5($pword);
+            $password = $pword;
 
             $qr = "SELECT * FROM peers WHERE email = '$email' AND password = '$password'";
             $run = $conn->query($qr) or die(mysqli_error($conn));
 
             if (mysqli_num_rows($run) > 0){
+
+                echo "found one";
 
                 while($row = mysqli_fetch_assoc($run)){
 
@@ -45,12 +48,14 @@ if (isset($_POST['login'])) {
                     $fetch_role = $row['role'];
                     $fetch_pwd = $row['password'];
 
-                    if($row['role'] == 'manager'){
+                    if($row['role'] == 'Manager'){
+
+                       
 
                         if ($row['status'] == 'active') {
                             $_SESSION['fetchid'] = $fetch_id;
                             $_SESSION['fetchemail'] = $fetch_email;
-                            $_SESSION['fetchname'] = $fetch_fullname;
+                           echo  $_SESSION['fetchname'] = $fetch_fullname;
                             $_SESSION['fetchpwd'] = $fetch_pwd;
                             $_SESSION['fetchimage'] = $fetch_image;
 
@@ -61,7 +66,7 @@ if (isset($_POST['login'])) {
                         }
 
                     }
-                    elseif ($row['role'] == 'agent') {
+                    elseif ($row['role'] == 'Agent') {
                         
                         if ($row['status'] == 'active') {
                             $_SESSION['fetchid'] = $fetch_id;
@@ -71,6 +76,7 @@ if (isset($_POST['login'])) {
                             $_SESSION['fetchimage'] = $fetch_image;
 
                             header("location: agents/Click2dials/index.php");
+                            
                         }
                         else{
                             $msg = "User not Active! Contact your Administrator";

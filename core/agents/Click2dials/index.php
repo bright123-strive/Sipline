@@ -172,7 +172,7 @@
 </style>
 </head>
 <body oncontextmenu="return false">
-            <div class="banner-wrap" id="banner-wrap">
+            <!-- <div class="banner-wrap" id="banner-wrap">
                 <div class="banner" id="banner">
                   &nbsp;<div class="logo" id="logo"></div>
                 <div class="banner-text" id="banner-text">
@@ -182,7 +182,7 @@
                           <b>My Profile  &nbsp&nbsp| &nbsp</b>
                       </div>
                       <div class ='column1'>
-                          <b><?php $USERNAME=$_SESSION['username']; $UserName =substr($USERNAME, 0, strrpos($USERNAME, '@')); echo strtoupper($UserName);?>&nbsp</b>
+                          <b><?php// $USERNAME=$_SESSION['username']; $UserName =substr($USERNAME, 0, strrpos($USERNAME, '@')); echo strtoupper($UserName);?>&nbsp</b>
                       </div>
                       <div class ='column1'>
                           <b>&nbsp| &nbsp</b>&nbsp<a href="../../modules/0_0_logout.php" class="main" onclick="localStorage.clear();">Sign Out</a>
@@ -191,7 +191,7 @@
                 </font>
                 </div>
                 </div>
-            </div>
+            </div> -->
 
       <div class="content-wrap" id="content-wrap">
             <div class="bluV">
@@ -199,7 +199,7 @@
                   <!--Actual Phone-->
                 <div id=Phone></div>
             </div>
-            <div class="nav-wrap" id="nav-wrap">
+            <!-- <div class="nav-wrap" id="nav-wrap">
                   <div class="column" style="background-color:#fff;width: 15%;">
                     <div id="table_div"></div>
                   </div>
@@ -215,7 +215,7 @@
                   <div class="column" style="background-color:#ccc;width: 34.4%;">
                     <div id="donutchart" style="width:100%; height:100%"></div>
                   </div>
-            </div>
+            </div> -->
             <!-- Contents starts here-->
             <div class="content" id="content">
               
@@ -317,7 +317,7 @@
                                 document.write(sessionValue1);
                               </script>&nbsp;Campaign
                             </div>
-                            <div class ='column' style='width: 20%;'>
+                            <!-- <div class ='column' style='width: 20%;'>
                               <table border="0" align="right" style="width:100%;">
                                 <tr>
                                   <td>
@@ -383,7 +383,7 @@
                                 </tr>
                               </table>
             
-                            </div>
+                            </div> -->
                             <div class ='column' style='width: 13%;'>
                             </div>
                         </b>
