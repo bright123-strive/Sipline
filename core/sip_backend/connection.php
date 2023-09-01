@@ -7,7 +7,7 @@ $root = "root";
 $password = "";
 $db = "asterisk";
 
-$conn = mysqli_connect($localhost, $root, $password, $db);
+$conn = new mysqli($localhost, $root, $password, $db);
 
 function logged_in(){
                         
